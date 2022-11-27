@@ -92,6 +92,39 @@ alert de confirmacion para borrar job? -->
 
 </section>
 
+
+<!-- CREATE JOB -->
+
+<section class="w-full my-4 flex flex-col justify-center items-center">
+
+  <form action="" method="get" class="w-full md:max-w-3xl">
+
+      <div class="m-2 flex flex-col justify-center">
+          <label for="jobTitle" class="text-lg font-bold">Job title</label>
+          <input type="text" id="jobTitle" class="w-full h-10 border border-blue-400 rounded-md capitalize" maxlength="20" required>
+      </div>
+
+      <div class="m-2 flex flex-col justify-center">
+          <label for="jobDescription" class="text-lg font-bold">Description</label>
+          <textarea name="textarea" rows="10" cols="50" class="w-full border border-blue-400 rounded-md capitalize"></textarea>
+      </div>
+
+      <div class="m-2 flex flex-col justify-center">
+          <label for="jobTags" class="text-lg font-bold">Tags</label>
+          <input type="text" placeholder="Location" class="w-full p-2 h-10 my-1 border border-blue-400 rounded-md capitalize" maxlength="20" required>
+          <input type="text" placeholder="Seniority" class="w-full p-2 h-10 my-1 border border-blue-400 rounded-md capitalize" maxlength="20" required>
+          <input type="text" placeholder="Category" class="w-full p-2 h-10 my-1 border border-blue-400 rounded-md capitalize" maxlength="20" required>
+      </div>
+
+      <div class="m-2">
+          <input type="submit" value="Submit" class="w-1/3 h-10 m-1 rounded-md bg-blue-400 text-white font-bold">
+      </div>
+
+     
+  </form>
+
+</section>
+ 
    
     
     <script src="jobs.js"></script>

@@ -1,6 +1,9 @@
 const $ = (selector)=> document.querySelector(selector)
 const $$ = (selector)=> document.querySelectorAll(selector)
 
+const hideElement = (selector) => selector.classList.add("hidden")
+const showElement = (selector) => selector.classList.remove("hidden")
+
 
 const getJobsWithAsyncAwait = async () => {
     const response = await fetch("https://637fb96d8efcfcedacf6375c.mockapi.io/jobs")
@@ -17,6 +20,18 @@ getJobsWithAsyncAwait().then(data=>jobsCards(data))
 
 // }
 // getJobs()
+
+
+const postJob = () => {
+    fetch("https://637fb96d8efcfcedacf6375c.mockapi.io/jobs", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'Application/json'
+        },
+        body: JSON.stringify(saveJob())
+    }).finally(() => window.location.href = "index.html")
+}
+
 
 
 const jobsCards = (arrayJobs) => {
@@ -44,11 +59,29 @@ const jobsCards = (arrayJobs) => {
 }
 
 //--------------
+const saveJob =()=>{
+    return{
+        description: $("#description").value,
+        name : $("#title").value,
+        location: $("#location").value ,
+        category:$("#category").value ,
+        seniority:$("#seniority").value,
+        img: $("#src").value ,
+    }
+}
 $("#navJob").addEventListener('click', () =>{ 
-    $("#filters").classList.add("hidden")
+    hideElement($("#filters")) //no funciona el hidden ni con filters ni con conatiner
     $("#container").innerHTML= ""
-    $("#formNewJob").classList.remove("hidden")
+    hideElement($("#container"))
+    showElement($("#formNewJob"))
 })
+
+$("#formNewJob").addEventListener('submit', (e) =>{
+    e.preventDefault()
+    postJob()
+
+})
+
 
 
 //-------funcion navbar responsive

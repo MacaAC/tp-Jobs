@@ -43,6 +43,13 @@ const jobsCards = (arrayJobs) => {
     }
 }
 
+//--------------
+$("#navJob").addEventListener('click', () =>{ 
+    $("#filters").classList.add("hidden")
+    $("#container").innerHTML= ""
+    $("#formNewJob").classList.remove("hidden")
+})
+
 
 //-------funcion navbar responsive
 

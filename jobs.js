@@ -25,7 +25,7 @@ getJobsWithAsyncAwait().then(data=>jobsCards(data))
 //     fetch(`https://637fb96d8efcfcedacf6375c.mockapi.io/jobs/${idJob}`)
 //         .then(res => res.json())
 //         .then(data => {
-
+ 
 //             if (isEdit) {
 //             showForm(data)
 //             } else {
@@ -124,8 +124,7 @@ $("#navHome").addEventListener('click', () => {
 
 
 const showForm = (job) =>{
-    console.log(job)
-    
+
     $("#container").innerHTML = ""
     showElement($("#editJobForm"))
 
@@ -137,6 +136,16 @@ const showForm = (job) =>{
     $("#srcEdit").value = job.img
 }
 
+
+const editJob = (idJob) => {
+    fetch(`https://637fb96d8efcfcedacf6375c.mockapi.io/jobs/${idJob}`, {
+        method: "PUT",
+        headers: {
+            'Content-Type': 'Application/json'
+        },
+        body: JSON.stringify(saveJob())
+    }).finally(() => window.location.href = "index.html")
+}
 
 const viewDetails = (objJob) =>{
     const{name,description,location,category,seniority, img,id}= objJob
@@ -162,6 +171,7 @@ const viewDetails = (objJob) =>{
     for (const btn of $$(".btnEditJob")){
         btn.addEventListener("click",()=>{
             const jobId = btn.getAttribute("data-id")
+            $("#submitEdit").setAttribute("data-id",jobId)
             getJobWithAsyncAwait(jobId).then(data=> showForm(data))
     
         }
@@ -170,7 +180,11 @@ const viewDetails = (objJob) =>{
     }
 
 }
-
+$("#editJobForm").addEventListener("submit",(e)=>{
+    e.preventDefault()
+    const id =  $("#submitEdit").getAttribute("data-id")
+    editJob(id)
+})
 
 //-------funcion navbar responsive
 

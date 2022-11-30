@@ -59,6 +59,7 @@ for (const btn of $$(".btnSeeDetails")){
     btn.addEventListener("click",()=>{
         const jobId = btn.getAttribute("data-id")
         getJobWithAsyncAwait(jobId).then(data=> viewDetails(data))
+        hideElement($("#filters"))
 
     }
     )
@@ -106,7 +107,7 @@ $("#navJob").addEventListener('click', () =>{
 })
 
 $("#formNewJob").addEventListener('submit', (e) =>{
-    reset()
+    //reset() // me trae problemas... buscar como se resetea formularios...
     e.preventDefault()
     hideElement($("#formNewJob"))
     postJob()
@@ -115,8 +116,8 @@ $("#formNewJob").addEventListener('submit', (e) =>{
 
 $("#navHome").addEventListener('click', () => {
     hideElement($("#formNewJob"))
+    hideElement($("#editJobForm"))
     showElement ($("#filters"))
-    showElement ($("#container"))
     getJobsWithAsyncAwait().then(data=>jobsCards(data))
 })
 
@@ -198,16 +199,36 @@ const viewDetails = (objJob) =>{
 
 }
 
+//probando sacar el this
+
+// const alertConfirmation = (id) => {
+// nameJob =  getJobWithAsyncAwait(id).then(data=> data.name)//esto me devuelve una promesa, por qué.. resolver
+//     $("#confirmation").innerHTML = `
+//     <div class="w-4/5 h-16 border-red-500 bg-red-200 flex justify-center items-center md:w-3/5">
+//     <p class="text-red-500 mr-3">Are you sure to delete ${nameJob}?</p>
+    
+//     <button  class="btnConfirmToDelete w-1/3 h-10 m-1 rounded-md shadow-md bg-red-400 text-white font-bold  text-xs md:w-1/12" onclick="effectivelyDelete()">Delete Job</button>
+    
+//     <button  class="btnCancelToDelete w-1/3 h-10 m-1 rounded-md shadow-md bg-green-400 text-white font-bold text-xs md:w-1/12" onclick="cancel()">Cancel</button>
+//   </div>`
+
+//   for(const btn of $$(".btnConfirmToDelete")){
+//     btn.addEventListener("click",()=>{
+//     getJobWithAsyncAwait(id).then(data=> effectivelyDelete(data))
+//     })
+//   }
+// }
+
+
+    
 
 const alertConfirmation = (id) => {
-let obj =  getJobWithAsyncAwait(id).then(data=> data.name)
-alert(obj)
-
+nameJob =  getJobWithAsyncAwait(id).then(data=> data.name)//esto me devuelve una promesa, por qué.. resolver
     $("#confirmation").innerHTML = `
     <div class="w-4/5 h-16 border-red-500 bg-red-200 flex justify-center items-center md:w-3/5">
-    <p class="text-red-500 mr-3">Are you sure to delete ${obj}?</p>
-    <button id="btnConfirmToDelete" class="w-1/3 h-10 m-1 rounded-md shadow-md bg-red-400 text-white font-bold  text-xs md:w-1/12" onclick="funcion()">Delete Job</button>
-    <button id="btnCancelToDelete" class="w-1/3 h-10 m-1 rounded-md shadow-md bg-green-400 text-white font-bold text-xs md:w-1/12" >Cancel</button>
+    <p class="text-red-500 mr-3">Are you sure to delete ${nameJob}?</p>
+    <button id="btnConfirmToDelete" class="w-1/3 h-10 m-1 rounded-md shadow-md bg-red-400 text-white font-bold  text-xs md:w-1/12" onclick="effectivelyDelete()">Delete Job</button>
+    <button id="btnCancelToDelete" class="w-1/3 h-10 m-1 rounded-md shadow-md bg-green-400 text-white font-bold text-xs md:w-1/12" onclick="cancel()">Cancel</button>
   </div>`
 }
 
@@ -220,8 +241,12 @@ $("#editJobForm").addEventListener("submit",(e)=>{
 
 })
 
-
-const funcion =()=>{
+const cancel = ()=>{
+    hideElement($("#confirmation"))
+    showElement ($("#filters"))
+    getJobsWithAsyncAwait().then(data=>jobsCards(data))
+}
+const effectivelyDelete =()=>{
     const jobId =  $("#btnConfirmToDelete").getAttribute("data-id")
         deleteJob(jobId)
         hideElement($("#confirmation"))

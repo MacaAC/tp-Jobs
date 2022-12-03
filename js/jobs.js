@@ -258,21 +258,29 @@ $("#chooseFilter").addEventListener("change",(e) =>{
     }
     })
 
-    
-$("#searchBtn").addEventListener("click",()=>{
-    if($("#chooseFilter").value == "Location"){
+    const filter =   () => {
+        
+        if($("#chooseFilter").value == "chooseLocation"){
+            let jobsLocations = getJobsWithAsyncAwait().then(data => data.filter((job) => job.location === $("#filterLocation").value))
 
-    }
+            return jobsLocations.then(data => jobsCards(data))
+        }  if($("#chooseFilter").value == "chooseCategory"){
+            let jobsCategory = getJobsWithAsyncAwait().then(data => data.filter((job) => job.category === $("#filterCategory").value))
 
+            return jobsCategory.then(data => jobsCards(data))
+        } if($("#chooseFilter").value == "chooseSeniority"){
+            let jobsSeniority = getJobsWithAsyncAwait().then(data => data.filter((job) => job.seniority === $("#filterSeniority").value))
 
-})
+            return jobsSeniority.then(data => jobsCards(data))
+        }
 
+        }
 
-
-const filter = async () => {
- let filteredJobs= await getJobsWithAsyncAwait().then(data=>data.filter((job) => job.location == $("#filterLocation").value))
- return console.log(filteredJobs) 
-}
+       $("#searchBtn").addEventListener("click",()=>{
+        
+         $("#container").innerHTML= "" 
+         filter()
+       })
 
 //-------funcion navbar responsive
 

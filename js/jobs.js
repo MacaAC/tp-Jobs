@@ -281,6 +281,12 @@ $("#chooseFilter").addEventListener("change",(e) =>{
          $("#container").innerHTML= "" 
          filter()
        })
+       $("#clearBtn").addEventListener("click",()=>{
+        
+        $("#container").innerHTML= "" 
+        getJobsWithAsyncAwait().then(data=>jobsCards(data))
+        
+      })
 
 //-------funcion navbar responsive
 

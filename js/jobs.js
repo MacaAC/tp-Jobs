@@ -36,6 +36,7 @@ const postJob = () => {
 
 
 const jobsCards = (arrayJobs) => {
+    $("#spinner").innerHTML = ""
     $("#container").innerHTML =""
     for(const {name,description,location,category,seniority, img,id} of arrayJobs){
 

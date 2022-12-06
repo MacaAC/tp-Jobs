@@ -259,17 +259,26 @@ $("#chooseFilter").addEventListener("change",(e) =>{
     })
 
     const filter =   () => {
-        
         if($("#chooseFilter").value == "chooseLocation"){
             let jobsLocations = getJobsWithAsyncAwait().then(data => data.filter((job) => job.location === $("#filterLocation").value))
+         console.log(jobsLocations)
+            //quiero hacer algun alerta por si no hay ningun resultado que coincida con la busquda
+           // if(jobsLocations){alert("No hay ningún trabajo que coincida")}
 
-            return jobsLocations.then(data => jobsCards(data))
-        }  if($("#chooseFilter").value == "chooseCategory"){
+         return jobsLocations.then(data => jobsCards(data))
+        }  
+        
+        if($("#chooseFilter").value == "chooseCategory"){
             let jobsCategory = getJobsWithAsyncAwait().then(data => data.filter((job) => job.category === $("#filterCategory").value))
+           // if(jobsSeniority==[]){alert("No hay ningún trabajo que coincida")}
+
 
             return jobsCategory.then(data => jobsCards(data))
-        } if($("#chooseFilter").value == "chooseSeniority"){
+        } 
+        
+        if($("#chooseFilter").value == "chooseSeniority"){
             let jobsSeniority = getJobsWithAsyncAwait().then(data => data.filter((job) => job.seniority === $("#filterSeniority").value))
+           // if(jobsSeniority==[]){alert("No hay ningún trabajo que coincida")}
 
             return jobsSeniority.then(data => jobsCards(data))
         }
@@ -285,7 +294,12 @@ $("#chooseFilter").addEventListener("change",(e) =>{
         
         $("#container").innerHTML= "" 
         getJobsWithAsyncAwait().then(data=>jobsCards(data))
-        
+        $("#chooseFilter").value = "choice"
+
+        hideElement($("#filterLocation"))
+        hideElement($("#filterSeniority"))
+        hideElement($("#filterCategory"))
+        hideElement($("#filterButtons"))        
       })
 
 //-------funcion navbar responsive

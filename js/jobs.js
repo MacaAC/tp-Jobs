@@ -23,8 +23,6 @@ const getJobWithAsyncAwait = async (idJob) => {
 
 
 
-
-
 const postJob = () => {
     fetch("https://637fb96d8efcfcedacf6375c.mockapi.io/jobs", {
         method: "POST",
@@ -80,7 +78,7 @@ const jobsCards = (arrayJobs) => {
 }
 
 
-//--------------
+
 const saveJob =()=>{
    
     return  {
@@ -279,6 +277,7 @@ $("#chooseFilter").addEventListener("change",(e) =>{
         if($("#chooseFilter").value == "chooseLocation"){
             let jobsLocations = getJobsWithAsyncAwait().then(data => data.filter((job) => job.location === $("#filterLocation").value))
          console.log(jobsLocations)
+         jobsLocations.then(data=>console.log("hola",data))
             //quiero hacer algun alerta por si no hay ningun resultado que coincida con la busquda
            // if(jobsLocations){alert("No hay ningún trabajo que coincida")}
 

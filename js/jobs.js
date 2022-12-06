@@ -63,6 +63,7 @@ const jobsCards = (arrayJobs) => {
      }
      for (const btn of $$(".btnSeeDetails")){
          btn.addEventListener("click",()=>{
+            showElement($("#spinner"))
              const jobId = btn.getAttribute("data-id")
              getJobWithAsyncAwait(jobId).then(data=> viewDetails(data))
              hideElement($("#filters"))
@@ -166,6 +167,7 @@ const deleteJob = (idJob) => {
 
 
 const viewDetails = (objJob) =>{
+    hideElement($("#spinner"))
     const{name,description,location,category,seniority, img,id}= objJob
     $("#container").innerHTML = `
     <div id = "card-{id}" class="w-5/6 h-[450px] my-3 border border-2 rounded-md shadow-2xl sm:w-1/3 sm:m-3 md:w-1/4 lg:w-1/5 xl:w-1/6">

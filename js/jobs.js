@@ -36,36 +36,44 @@ const postJob = () => {
 
 
 const jobsCards = (arrayJobs) => {
-    $("#spinner").innerHTML = ""
-    $("#container").innerHTML =""
-    for(const {name,description,location,category,seniority, img,id} of arrayJobs){
 
-       $("#container").innerHTML += `
-       <div id = "card-{id}" class="w-5/6 h-full my-3 border border-2 rounded-md shadow-2xl sm:w-1/3 sm:m-3 md:w-1/4 lg:w-1/5 xl:w-1/6">
-       <figure class ="w-full h-1/3 flex mt-2 items-center">
-           <img class="w-full h-[170px]" src=${img}" alt="job">
-       </figure>
-       <div id ="contents" class="h-2/3 p-2 flex flex-col justify-center items-center">
-           <h3 class="text-xl font-bold underline">${name}</h3>
-           <p class="my-4 p-2 text-justify text-sm">${description}</p>
-           <div class="flex flex-row">
-               <div id="locationDiv" class="m-1 px-1 bg-pink-400 text-center text-xs font-bold rounded-md">${location}</div>
-               <div id="categoryDiv" class="m-1 px-1 bg-yellow-400 text-center text-xs font-bold rounded-md">${category}</div>
-               <div id="seniorityDiv" class="m-1 px-1 bg-orange-400 text-center text-xs font-bold rounded-md">${seniority}</div>
-           </div>
-           <button  data-id="${id}" class="btnSeeDetails w-2/3 h-10 my-2 rounded-md shadow-md bg-blue-400 text-white font-bold">See Details</button>
-       </div>`
-}
-for (const btn of $$(".btnSeeDetails")){
-    btn.addEventListener("click",()=>{
-        const jobId = btn.getAttribute("data-id")
-        getJobWithAsyncAwait(jobId).then(data=> viewDetails(data))
-        hideElement($("#filters"))
+    $("#container").innerHTML =""
+
+    if(arrayJobs){
+        hideElement($("#spinner"))
+
+        for(const {name,description,location,category,seniority, img,id} of arrayJobs){
+
+            $("#container").innerHTML += `
+
+            <div id = "card-{id}" class="w-5/6 h-full my-3 border border-2 rounded-md shadow-2xl sm:w-1/3 sm:m-3 md:w-1/4 lg:w-1/5 xl:w-1/6">
+            <figure class ="w-full h-1/3 flex mt-2 items-center">
+                <img class="w-full h-[170px]" src=${img}" alt="job">
+            </figure>
+            <div id ="contents" class="h-2/3 p-2 flex flex-col justify-center items-center">
+                <h3 class="text-xl font-bold underline">${name}</h3>
+                <p class="my-4 p-2 text-justify text-sm">${description}</p>
+                <div class="flex flex-row">
+                    <div id="locationDiv" class="m-1 px-1 bg-pink-400 text-center text-xs font-bold rounded-md">${location}</div>
+                    <div id="categoryDiv" class="m-1 px-1 bg-yellow-400 text-center text-xs font-bold rounded-md">${category}</div>
+                    <div id="seniorityDiv" class="m-1 px-1 bg-orange-400 text-center text-xs font-bold rounded-md">${seniority}</div>
+                </div>
+                <button  data-id="${id}" class="btnSeeDetails w-2/3 h-10 my-2 rounded-md shadow-md bg-blue-400 text-white font-bold">See Details</button>
+            </div>`
+     }
+     for (const btn of $$(".btnSeeDetails")){
+         btn.addEventListener("click",()=>{
+             const jobId = btn.getAttribute("data-id")
+             getJobWithAsyncAwait(jobId).then(data=> viewDetails(data))
+             hideElement($("#filters"))
+     
+         }
+         )
+     
+     }
 
     }
-    )
-
-}
+   
 }
 
 
@@ -97,7 +105,10 @@ const saveJobEdit =()=>{
 
 $("#navJob").addEventListener('click', () =>{
     hideElement($("#filters"))
-    $("#container").innerHTML= ""
+    $("#container").innerHTML= ` <div id="spinner" class="flex justify-center hidden">
+    <p class="w-40 h-12 rounded-md shadow-md bg-indigo-500 text-white font-bold flex justify-center items-center"><span><i class="fas fa-spinner mx-2 text-3xl animate-spin"></i></span>Cargando...</p>
+  </div>
+  `
     // resetForm()
     showElement($("#formNewJob"))
 })
@@ -111,6 +122,7 @@ $("#formNewJob").addEventListener('submit', (e) =>{
 
 
 $("#navHome").addEventListener('click', () => {
+    showElement($("#spinner"))
     hideElement($("#formNewJob"))
     hideElement($("#confirmation"))
     hideElement($("#editJobForm"))

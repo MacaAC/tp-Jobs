@@ -12,6 +12,8 @@ const getJobsWithAsyncAwait = async () => {
 }
 
 getJobsWithAsyncAwait().then(data=>jobsCards(data))
+getJobsWithAsyncAwait().catch(()=> alert("La información no está disponible"))
+
 
 const getJobWithAsyncAwait = async (idJob) => {
     const response = await fetch(`https://637fb96d8efcfcedacf6375c.mockapi.io/jobs/${idJob}`)

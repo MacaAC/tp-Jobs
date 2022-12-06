@@ -258,12 +258,16 @@ $("#chooseFilter").addEventListener("change",(e) =>{
     }
     })
 
+const url =new URL("637fb96d8efcfcedacf6375c.mockapi.io/jobs")
+const params = new URLSearchParams()
     const filter =   () => {
         if($("#chooseFilter").value == "chooseLocation"){
             let jobsLocations = getJobsWithAsyncAwait().then(data => data.filter((job) => job.location === $("#filterLocation").value))
-         console.log(jobsLocations)
+            console.log(jobsLocations)
             //quiero hacer algun alerta por si no hay ningun resultado que coincida con la busquda
-           // if(jobsLocations){alert("No hay ningún trabajo que coincida")}
+           if(hola == 0){ 
+            console.log("No hay ningún trabajo que coincida") 
+        }
 
          return jobsLocations.then(data => jobsCards(data))
         }  

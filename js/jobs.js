@@ -162,6 +162,9 @@ const deleteJob = (idJob) => {
 
 //IMPORTANTE AGRAGAR A MOCKAPI EL DETAIL
 
+//<p class="mb-4 px-2 text-sm text-justify sm:text-base">${detail}</p>
+
+
 const viewDetails = (objJob) =>{
     hideElement($("#spinner"))
     const{name,description,location,category,seniority, img,detail,id}= objJob
@@ -173,7 +176,6 @@ const viewDetails = (objJob) =>{
     <div id ="contents" class="h-2/3 p-2 flex flex-col justify-center items-center">
         <h3 class="text-xl font-bold underline">${name}</h3>
         <p class="mt-4 p-2 text-justify">${description}</p>
-        <p class="mb-4 px-2 text-sm text-justify sm:text-base">${detail}</p>
         <div class="flex flex-row">
             <div id="locationDiv" class="m-1 bg-pink-400 text-center text-xs font-bold ">${location}</div>
             <div id="categoryDiv" class="m-1 bg-yellow-400 text-center text-xs font-bold">${category}</div>

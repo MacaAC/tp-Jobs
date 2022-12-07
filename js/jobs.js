@@ -69,14 +69,11 @@ const jobsCards = (arrayJobs) => {
              const jobId = btn.getAttribute("data-id")
              getJobWithAsyncAwait(jobId).then(data=> viewDetails(data))
              hideElement($("#filters"))
-     
          }
          )
-     
      }
-
     }
-   
+
 }
 
 
@@ -186,9 +183,9 @@ const viewDetails = (objJob) =>{
         </div>
         <div class="flex w-full justify-center">
             <button data-id="${id}" class="btnEditJob w-1/3 h-10 m-2 rounded-md shadow-md bg-green-400 text-white font-bold" >Edit</button>
-            <button  data-id="${id}" class="btnDeleteJob w-1/3 h-10 m-2 rounded-md shadow-md bg-red-400 text-white font-bold" >Delete</button>  
+            <button  data-id="${id}" class="btnDeleteJob w-1/3 h-10 m-2 rounded-md shadow-md bg-red-400 text-white font-bold" >Delete</button>
         </div>
-       
+
     </div>`
     for (const btn of $$(".btnEditJob")){
         btn.addEventListener("click",()=>{
@@ -283,16 +280,16 @@ $("#chooseFilter").addEventListener("change",(e) =>{
            // if(jobsLocations){alert("No hay ningún trabajo que coincida")}
 
          return jobsLocations.then(data => jobsCards(data))
-        }  
-        
+        }
+
         if($("#chooseFilter").value == "chooseCategory"){
             let jobsCategory = getJobsWithAsyncAwait().then(data => data.filter((job) => job.category === $("#filterCategory").value))
            // if(jobsSeniority==[]){alert("No hay ningún trabajo que coincida")}
 
 
             return jobsCategory.then(data => jobsCards(data))
-        } 
-        
+        }
+
         if($("#chooseFilter").value == "chooseSeniority"){
             let jobsSeniority = getJobsWithAsyncAwait().then(data => data.filter((job) => job.seniority === $("#filterSeniority").value))
            // if(jobsSeniority==[]){alert("No hay ningún trabajo que coincida")}
@@ -304,19 +301,19 @@ $("#chooseFilter").addEventListener("change",(e) =>{
 
        $("#searchBtn").addEventListener("click",()=>{
         
-         $("#container").innerHTML= "" 
+         $("#container").innerHTML= ""
          filter()
        })
        $("#clearBtn").addEventListener("click",()=>{
         
-        $("#container").innerHTML= "" 
+        $("#container").innerHTML= ""
         getJobsWithAsyncAwait().then(data=>jobsCards(data))
         $("#chooseFilter").value = "choice"
 
         hideElement($("#filterLocation"))
         hideElement($("#filterSeniority"))
         hideElement($("#filterCategory"))
-        hideElement($("#filterButtons"))        
+        hideElement($("#filterButtons"))
       })
 
 //-------funcion navbar responsive

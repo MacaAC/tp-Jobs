@@ -48,7 +48,7 @@ const jobsCards = (arrayJobs) => {
 
             <div id = "card-{id}" class="w-5/6 h-full my-3 border border-2 rounded-md shadow-2xl sm:w-1/3 sm:m-3 md:w-1/4 lg:w-1/5 xl:w-1/6">
             <figure class ="w-full h-1/3 flex mt-2 items-center">
-                <img class="w-full h-[170px]" src=${img}" alt="job">
+                <img class="w-full h-[170px]" src="${img}" alt="job">
             </figure>
             <div id ="contents" class="h-2/3 p-2 flex flex-col justify-center items-center">
                 <h3 class="text-xl font-bold underline">${name}</h3>
@@ -63,6 +63,9 @@ const jobsCards = (arrayJobs) => {
      }
      for (const btn of $$(".btnSeeDetails")){
          btn.addEventListener("click",()=>{
+            $("#container").innerHTML = ""
+            hideElement($("#filters"))
+
             showElement($("#spinner"))
             hideElement($("#filters"))
              const jobId = btn.getAttribute("data-id")
@@ -70,8 +73,11 @@ const jobsCards = (arrayJobs) => {
          }
          )
      }
-
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9f7de03c3a6af2199507c0c7c4ef0f3fb781fd2f
 }
 
 const saveJob =()=>{
@@ -82,10 +88,11 @@ const saveJob =()=>{
         location: $("#location").value ,
         category:$("#category").value ,
         seniority:$("#seniority").value,
-        img: $("#src").value ,
+        img: $("#src").value.toLowerCase() ,
     }
 
 }
+
 const saveJobEdit =()=>{
    
     return  {
@@ -94,7 +101,7 @@ const saveJobEdit =()=>{
         location: $("#locationEdit").value ,
         category:$("#categoryEdit").value ,
         seniority:$("#seniorityEdit").value,
-        img: $("#srcEdit").value ,
+        img: $("#srcEdit").value.toLowerCase() ,
     }
 }
 
@@ -102,11 +109,14 @@ const saveJobEdit =()=>{
 $("#navJob").addEventListener('click', () =>{
     hideElement($("#filters"))
     hideElement($("#editJobForm"))
+
     $("#container").innerHTML= ` <div id="spinner" class="flex justify-center hidden">
     <p class="w-40 h-12 rounded-md shadow-md bg-indigo-500 text-white font-bold flex justify-center items-center"><span><i class="fas fa-spinner mx-2 text-3xl animate-spin"></i></span>Cargando...</p>
   </div>
   `
     // resetForm()
+   // $("#formNewJob").reset() no me permite hacer el reset de esta forma..que desgracia
+
     showElement($("#formNewJob"))
 })
 
@@ -185,6 +195,7 @@ const viewDetails = (objJob) =>{
             <button data-id="${id}" class="btnEditJob w-1/3 h-10 m-2 rounded-md shadow-md bg-green-400 text-white font-bold" >Edit</button>
             <button  data-id="${id}" class="btnDeleteJob w-1/3 h-10 m-2 rounded-md shadow-md bg-red-400 text-white font-bold" >Delete</button>
         </div>
+
     </div>`
     for (const btn of $$(".btnEditJob")){
         btn.addEventListener("click",()=>{
@@ -288,6 +299,7 @@ $("#chooseFilter").addEventListener("change",(e) =>{
 
     const filter =   () => {
         if($("#chooseFilter").value == "chooseLocation"){
+
         filterByLocation()
         }  
 
@@ -302,12 +314,20 @@ $("#chooseFilter").addEventListener("change",(e) =>{
         }
 
        $("#searchBtn").addEventListener("click",()=>{
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 9f7de03c3a6af2199507c0c7c4ef0f3fb781fd2f
          $("#container").innerHTML= ""
          filter()
        })
        $("#clearBtn").addEventListener("click",()=>{
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 9f7de03c3a6af2199507c0c7c4ef0f3fb781fd2f
         $("#container").innerHTML= ""
         getJobsWithAsyncAwait().then(data=>jobsCards(data))
         $("#chooseFilter").value = "choice"

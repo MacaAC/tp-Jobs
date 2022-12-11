@@ -1,270 +1,193 @@
 [
- {
-  "description": "Fullstack developer Sr PHP: CodeIgniter, CakePHP, Synfony, Laravel para Importante Empresa de Seguros.",
-  "name": "Fullstack developer ",
-  "location": "Argentina",
-  "category": "Fullstack",
-  "seniority": "Senior",
-  "img": "https://tse1.mm.bing.net/th?id=OIP.h6uqCp7SFZoRu9obpPUxjwHaDF&pid=Api&P=0",
-  "id": "1"
- },
- {
-    "description": "Fullstack developer Sr PHP: CodeIgniter, CakePHP, Synfony, Laravel para Importante Empresa de Seguros.",
-    "name": "Fullstack developer ",
-    "location": "Costa Rica",
-    "category": "Fullstack",
-    "seniority": "Senior",
-    "img": "https://tse1.mm.bing.net/th?id=OIP.h6uqCp7SFZoRu9obpPUxjwHaDF&pid=Api&P=0",
-    "id": "1"
-   },
-   {
-    "description": "Fullstack developer Sr PHP: CodeIgniter, CakePHP, Synfony, Laravel para Importante Empresa de Seguros.",
-    "name": "Fullstack developer ",
-    "location": "Cuba",
-    "category": "Fullstack",
-    "seniority": "Senior",
-    "img": "https://tse1.mm.bing.net/th?id=OIP.h6uqCp7SFZoRu9obpPUxjwHaDF&pid=Api&P=0",
-    "id": "1"
-   }, {
-    "description": "Fullstack developer Sr PHP: CodeIgniter, CakePHP, Synfony, Laravel para Importante Empresa de Seguros.",
-    "name": "Fullstack developer ",
-    "location": "Ecuador",
-    "category": "Fullstack",
-    "seniority": "Senior",
-    "img": "https://tse1.mm.bing.net/th?id=OIP.h6uqCp7SFZoRu9obpPUxjwHaDF&pid=Api&P=0",
-    "id": "1"
-   }, {
-    "description": "Fullstack developer Sr PHP: CodeIgniter, CakePHP, Synfony, Laravel para Importante Empresa de Seguros.",
-    "name": "Fullstack developer ",
-    "location": "Costa Rica",
-    "category": "Fullstack",
-    "seniority": "Senior",
-    "img": "https://tse1.mm.bing.net/th?id=OIP.h6uqCp7SFZoRu9obpPUxjwHaDF&pid=Api&P=0",
-    "id": "1"
-   },
-   {
-    "description": "Fullstack developer Sr PHP: CodeIgniter, CakePHP, Synfony, Laravel para Importante Empresa de Seguros.",
-    "name": "Fullstack developer ",
-    "location": "El Salvador",
-    "category": "Fullstack",
-    "seniority": "Senior",
-    "img": "https://tse1.mm.bing.net/th?id=OIP.h6uqCp7SFZoRu9obpPUxjwHaDF&pid=Api&P=0",
-    "id": "1"
-   },
-   {
-    "description": "Fullstack developer Sr PHP: CodeIgniter, CakePHP, Synfony, Laravel para Importante Empresa de Seguros.",
-    "name": "Fullstack developer ",
-    "location": "Granada",
-    "category": "Fullstack",
-    "seniority": "Senior",
-    "img": "https://tse1.mm.bing.net/th?id=OIP.h6uqCp7SFZoRu9obpPUxjwHaDF&pid=Api&P=0",
-    "id": "1"
-   },
-   {
-    "description": "Fullstack developer Sr PHP: CodeIgniter, CakePHP, Synfony, Laravel para Importante Empresa de Seguros.",
-    "name": "Fullstack developer ",
-    "location": "Ecuador",
-    "category": "Fullstack",
-    "seniority": "Senior",
-    "img": "https://tse1.mm.bing.net/th?id=OIP.h6uqCp7SFZoRu9obpPUxjwHaDF&pid=Api&P=0",
-    "id": "1"
-   },
-   {
-    "description": "Fullstack developer Sr PHP: CodeIgniter, CakePHP, Synfony, Laravel para Importante Empresa de Seguros.",
-    "name": "Fullstack developer ",
-    "location": "Haití",
-    "category": "Fullstack",
-    "seniority": "Senior",
-    "img": "https://tse1.mm.bing.net/th?id=OIP.h6uqCp7SFZoRu9obpPUxjwHaDF&pid=Api&P=0",
-    "id": "1"
-   },
-   {
-    "description": "Fullstack developer Sr PHP: CodeIgniter, CakePHP, Synfony, Laravel para Importante Empresa de Seguros.",
-    "name": "Fullstack developer ",
-    "location": "Costa Rica",
-    "category": "Fullstack",
-    "seniority": "Junior",
-    "img": "https://tse1.mm.bing.net/th?id=OIP.h6uqCp7SFZoRu9obpPUxjwHaDF&pid=Api&P=0",
-    "id": "1"
-   },
-   {
-    "description": "Fullstack developer Sr PHP: CodeIgniter, CakePHP, Synfony, Laravel para Importante Empresa de Seguros.",
-    "name": "Fullstack developer ",
-    "location": "Chile",
-    "category": "Fullstack",
-    "seniority": "Trainee",
-    "img": "https://tse1.mm.bing.net/th?id=OIP.h6uqCp7SFZoRu9obpPUxjwHaDF&pid=Api&P=0",
-    "id": "1"
-   },
- {
-  "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, iure? Nisi numquam eligendi doloribus aut nobis",
-  "name": "name 2",
-  "location": "Jamaica",
-  "category": "Backend",
-  "seniority": "Senior",
-  "img": "https://tse3.mm.bing.net/th?id=OIP.Y4Td-XMRtuFAW_8CpO7KyAHaDN&pid=Api&P=0",
-  "id": "2"
- },
- {
-  "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, iure? Nisi numquam eligendi doloribus aut nobis",
-  "name": "name 3",
-  "location": "Uruguay",
-  "category": "Frontend",
-  "seniority": "Semi-Senior",
-  "img": "https://tse2.mm.bing.net/th?id=OIP.ylrs5HBN8mjH-zcUB0ocawHaC6&pid=Api&P=0",
-  "id": "3"
- },
- {
-  "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, iure? Nisi numquam eligendi doloribus aut nobis?",
-  "name": "name 4",
-  "location": "Perú",
-  "category": "Frontend",
-  "seniority": "Junior",
-  "img": "https://tse2.mm.bing.net/th?id=OIP.mThTMA_Fs0DeriaBhSXMhAHaE8&pid=Api&P=0",
-  "id": "4"
- },
- {
-  "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, iure? Nisi numquam eligendi doloribus aut nobis",
-  "name": "name 5",
-  "location": "México",
-  "category": "Backend",
-  "seniority": "Semi-Senior",
-  "img": "https://tse3.mm.bing.net/th?id=OIP.x48a4ti7If-z1evigtu1MwHaEK&pid=Api&P=0",
-  "id": "5"
- },
- {
-  "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, iure? Nisi numquam eligendi doloribus aut nobis ",
-  "name": "name 6",
-  "location": "Jamaica",
-  "category": "Fullstack",
-  "seniority": "Semi-Senior",
-  "img": "https://tse1.mm.bing.net/th?id=OIP.GIflqxGedTJCFZqXNrecFAHaHa&pid=Api&P=0 ",
-  "id": "6"
- },
- {
-  "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, iure? Nisi numquam eligendi doloribus aut nobis",
-  "name": "name 7",
-  "location": "Argentina",
-  "category": "Frontend",
-  "seniority": "Senior",
-  "img": "https://tse2.mm.bing.net/th?id=OIP.CpRvY6K9b1_pK7fhUZd6sgHaFw&pid=Api&P=0",
-  "id": "7"
- },
- {
-  "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, iure? Nisi numquam eligendi doloribus aut nobis ",
-  "name": "name 8",
-  "location": "Chile",
-  "category": "Backend",
-  "seniority": "Trainee",
-  "img": "https://tse1.mm.bing.net/th?id=OIP.IFS6BChELXFCVmG_TynJWwHaEO&pid=Api&P=0",
-  "id": "8"
- },
- {
-  "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, iure? Nisi numquam eligendi doloribus aut nobis ",
-  "name": "Backend developer",
-  "location": "República Dominicana",
-  "category": "Backend",
-  "seniority": "Semi-Senior",
-  "img": "https://tse2.mm.bing.net/th?id=OIP.zjqzHsBbvrXaOKzmUEpB9gHaFL&pid=Api&P=0",
-  "id": "9"
- },
- {
-  "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, iure? Nisi numquam eligendi doloribus aut nobis ",
-  "name": "name 10",
-  "location": "Brasil",
-  "category": "Frontend",
-  "seniority": "Junior",
-  "img": "https://tse1.mm.bing.net/th?id=OIP.HOCmWGXyfD4F04xFtZyw6gHaFj&pid=Api&P=0",
-  "id": "10"
- },
- {
-  "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, iure? Nisi numquam eligendi doloribus aut nobis ",
-  "name": "name 11",
-  "location": "Chile",
-  "category": "Fullstack",
-  "seniority": "Semi-Senior",
-  "img": "https://tse1.mm.bing.net/th?id=OIP.qVoyVYJw5DuGzgjBnMggqQHaE8&pid=Api&P=0",
-  "id": "11"
- },
- {
-  "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, iure? Nisi numquam eligendi doloribus aut nobis",
-  "name": "name 12",
-  "location": "Argentina",
-  "category": "Fullstack",
-  "seniority": "Trainee",
-  "img": "https://tse4.mm.bing.net/th?id=OIP.Nk-vqyBhasZO4rKU-RSiKQHaD8&pid=Api&P=0",
-  "id": "12"
- },
- {
-  "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, iure? Nisi numquam eligendi doloribus aut nobis ",
-  "name": "name 13",
-  "location": "México",
-  "category": "Backend",
-  "seniority": "Trainee",
-  "img": "https://tse2.mm.bing.net/th?id=OIP.slr12cgUPqj6JtcE3xdJeQHaHa&pid=Api&P=0",
-  "id": "13"
- },
- {
-  "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, iure? Nisi numquam eligendi doloribus aut nobis",
-  "name": "name 14",
-  "location": "Perú",
-  "category": "Frontend",
-  "seniority": "Junior",
-  "img": "https://tse2.explicit.bing.net/th?id=OIP.2e2Uiej4FPi9kqKVnDONWQHaE-&pid=Api&P=0",
-  "id": "14"
- },
- {
-  "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, iure? Nisi numquam eligendi doloribus aut nobis",
-  "name": "name 15",
-  "location": "Brasil",
-  "category": "Backend",
-  "seniority": "Junior",
-  "img": "https://tse4.mm.bing.net/th?id=OIP.2F5GhqB3K0FhMq0SKeC2kgHaE8&pid=Api&P=0",
-  "id": "15"
- },
- {
-  "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, iure? Nisi numquam eligendi doloribus aut nobis ",
-  "name": "name 16",
-  "location": "Argentina",
-  "category": "Backend",
-  "seniority": "Semi-Senior",
-  "img": "https://tse4.mm.bing.net/th?id=OIP.sDY2fW5CFzcz4vEpliq2iQHaEl&pid=Api&P=0",
-  "id": "16"
- },
- {
-  "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, iure? Nisi numquam eligendi doloribus aut nobis ",
-  "name": "name 17",
-  "location": "Uruguay",
-  "category": "Frontend",
-  "seniority": "Senior",
-  "img": "https://tse2.mm.bing.net/th?id=OIP.j0LFcdeBPtMzbZ5Wev5woAHaEK&pid=Api&P=0",
-  "id": "17"
- },
- {
-  "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, iure? Nisi numquam eligendi doloribus aut nobis ",
-  "name": "name 18",
-  "location": "Brasil",
-  "category": "Fullstack",
-  "seniority": "Senior",
-  "img": "https://tse3.mm.bing.net/th?id=OIP.iEtOw9D95cwTL29xJvmoYQHaEj&pid=Api&P=0",
-  "id": "18"
- },
- {
-  "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, iure? Nisi numquam eligendi doloribus aut nobis",
-  "name": "name 19",
-  "location": "Brasil",
-  "category": "Frontend",
-  "seniority": "Semi-Senior",
-  "img": "https://tse2.mm.bing.net/th?id=OIP.W0ptHggsJCdEOjHkBg2UIgHaD4&pid=Api&P=0",
-  "id": "19"
- },
- {
-  "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, iure? Nisi numquam eligendi doloribus aut nobis",
-  "name": "name 20",
-  "location": "México",
-  "category": "Fullstack",
-  "seniority": "Trainee",
-  "img": "https://tse1.mm.bing.net/th?id=OIP.AtH_0JgAXejdikwHuNNLjAHaFg&pid=Api&P=0",
-  "id": "20"
- }
-]
+  {
+   "description": "Have verifiable experience  in C#.Net and SQL Server and  knowledge in Xamarin, Javascript, ASP.net, HTML.",
+   "name": "C# Net Developer",
+   "location": "Jamaica",
+   "category": "Backend",
+   "seniority": "Senior",
+   "img": "https://tse3.mm.bing.net/th?id=OIP.Y4Td-XMRtuFAW_8CpO7KyAHaDN&pid=Api&P=0",
+   "id": "2"
+  },
+  {
+   "description": "• Knowledge in software development either Mobile, Front-End, Back-End or Full Stack.\n• Proactivity to solve problems and Objectives.\n• Desire for self-improvement and professional development.",
+   "name": "Software Developer",
+   "location": "Uruguay",
+   "category": "Frontend",
+   "seniority": "Semi-Senior",
+   "img": "https://tse2.mm.bing.net/th?id=OIP.ylrs5HBN8mjH-zcUB0ocawHaC6&pid=Api&P=0",
+   "id": "3"
+  },
+  {
+   "description": "To fulfill the role it is necessary:\nHave knowledge and experience in Angular 6+ and AspNet Core + EntityFramework Core frameworks \njQuery, Bootstrap4, Javascript, HTML. \nFull time availability.",
+   "name": " Full Stack SSR/SR",
+   "location": "Perú",
+   "category": "Frontend",
+   "seniority": "Junior",
+   "img": "https://tse2.mm.bing.net/th?id=OIP.mThTMA_Fs0DeriaBhSXMhAHaE8&pid=Api&P=0",
+   "id": "4"
+  },
+  {
+   "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, iure? Nisi numquam eligendi doloribus aut nobis",
+   "name": "name 5",
+   "location": "México",
+   "category": "Backend",
+   "seniority": "Semi-Senior",
+   "img": "https://tse3.mm.bing.net/th?id=OIP.x48a4ti7If-z1evigtu1MwHaEK&pid=Api&P=0",
+   "id": "5"
+  },
+  {
+   "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, iure? Nisi numquam eligendi doloribus aut nobis ",
+   "name": "name 6",
+   "location": "Jamaica",
+   "category": "Fullstack",
+   "seniority": "Semi-Senior",
+   "img": "https://tse1.mm.bing.net/th?id=OIP.GIflqxGedTJCFZqXNrecFAHaHa&pid=Api&P=0 ",
+   "id": "6"
+  },
+  {
+   "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, iure? Nisi numquam eligendi doloribus aut nobis",
+   "name": "name 7",
+   "location": "Argentina",
+   "category": "Frontend",
+   "seniority": "Senior",
+   "img": "https://tse2.mm.bing.net/th?id=OIP.CpRvY6K9b1_pK7fhUZd6sgHaFw&pid=Api&P=0",
+   "id": "7"
+  },
+  {
+   "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, iure? Nisi numquam eligendi doloribus aut nobis ",
+   "name": "name 8",
+   "location": "Chile",
+   "category": "Backend",
+   "seniority": "Trainee",
+   "img": "https://tse1.mm.bing.net/th?id=OIP.IFS6BChELXFCVmG_TynJWwHaEO&pid=Api&P=0",
+   "id": "8"
+  },
+  {
+   "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, iure? Nisi numquam eligendi doloribus aut nobis ",
+   "name": "Backend developer",
+   "location": "República Dominicana",
+   "category": "Backend",
+   "seniority": "Semi-Senior",
+   "img": "https://tse2.mm.bing.net/th?id=OIP.zjqzHsBbvrXaOKzmUEpB9gHaFL&pid=Api&P=0",
+   "id": "9"
+  },
+  {
+   "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, iure? Nisi numquam eligendi doloribus aut nobis ",
+   "name": "name 10",
+   "location": "Brasil",
+   "category": "Frontend",
+   "seniority": "Junior",
+   "img": "https://tse1.mm.bing.net/th?id=OIP.HOCmWGXyfD4F04xFtZyw6gHaFj&pid=Api&P=0",
+   "id": "10"
+  },
+  {
+   "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, iure? Nisi numquam eligendi doloribus aut nobis ",
+   "name": "name 11",
+   "location": "Chile",
+   "category": "Fullstack",
+   "seniority": "Semi-Senior",
+   "img": "https://tse1.mm.bing.net/th?id=OIP.qVoyVYJw5DuGzgjBnMggqQHaE8&pid=Api&P=0",
+   "id": "11"
+  },
+  {
+   "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, iure? Nisi numquam eligendi doloribus aut nobis",
+   "name": "name 12",
+   "location": "Argentina",
+   "category": "Fullstack",
+   "seniority": "Trainee",
+   "img": "https://tse4.mm.bing.net/th?id=OIP.Nk-vqyBhasZO4rKU-RSiKQHaD8&pid=Api&P=0",
+   "id": "12"
+  },
+  {
+   "description": "",
+   "name": "name 13",
+   "location": "México",
+   "category": "Backend",
+   "seniority": "Trainee",
+   "img": "https://tse2.mm.bing.net/th?id=OIP.slr12cgUPqj6JtcE3xdJeQHaHa&pid=Api&P=0",
+   "id": "13"
+  },
+  {
+   "description": "Javascript Developer",
+   "name": "Experience in frameworks like GWT or similar.
+   Advanced knowledge of architectures based on microservices.",
+   "location": "Perú",
+   "category": "Frontend",
+   "seniority": "Junior",
+   "img": "https://tse2.explicit.bing.net/th?id=OIP.2e2Uiej4FPi9kqKVnDONWQHaE-&pid=Api&P=0",
+   "id": "14"
+  },
+  {
+   "description": "Minimum education: Tertiary, 3 years of experience, Availability to travel: No, Availability of change of residence: No",
+   "name": "Developer PHP, CSS, HTML y JS",
+   "location": "Brasil",
+   "category": "Backend",
+   "seniority": "Junior",
+   "img": "https://tse4.mm.bing.net/th?id=OIP.2F5GhqB3K0FhMq0SKeC2kgHaE8&pid=Api&P=0",
+   "id": "15"
+  },
+  {
+   "description": "Minimum education: Secondary
+   3 years of experience
+   English language
+   Knowledge: CSS, HTML, JavaScript, PHP, HTML 5, MySql
+   Availability to travel: No
+   Availability of change of residence: No ",
+   "name": "Web developer",
+   "location": "Argentina",
+   "category": "Backend",
+   "seniority": "Semi-Senior",
+   "img": "https://tse4.mm.bing.net/th?id=OIP.sDY2fW5CFzcz4vEpliq2iQHaEl&pid=Api&P=0",
+   "id": "16"
+  },
+  {
+   "description": "  • Have usable understanding of front-end technologies.
+   
+   • Understand the concepts of object oriented programming.
+   
+   • Have familiarity with optimizing interactions with backend storage, such as MySQL.
+   
+   • Have experience developing in a largely-distributed environment.",
+   "name": "Developers PHP ",
+   "location": "Uruguay",
+   "category": "Frontend",
+   "seniority": "Senior",
+   "img": "https://tse2.mm.bing.net/th?id=OIP.j0LFcdeBPtMzbZ5Wev5woAHaEK&pid=Api&P=0",
+   "id": "17"
+  },
+  {
+   "description": "The Ideal Candidate Will:
+
+   • Have strong knowledge of the PHP language and have experience with frameworks like Laravel, Symfony or similar.
+   
+   • Experience implementing and using RESTful APIs in a microservice architecture
+   ",
+   "name": "PHP Developer",
+   "location": "Brasil",
+   "category": "Fullstack",
+   "seniority": "Senior",
+   "img": "https://tse3.mm.bing.net/th?id=OIP.iEtOw9D95cwTL29xJvmoYQHaEj&pid=Api&P=0",
+   "id": "18"
+  },
+  {
+   "description": "Tomcat, Maven Repository, Stack Javascript: VueJs / Angular, Desarrollo Web: HTML 5, CSS, Git, BD Oracle, Middleware (REDHAT) Apiman, Service Mix, JBPM",
+   "name": "Java Developer",
+   "location": "Brasil",
+   "category": "Backend",
+   "seniority": "Semi-Senior",
+   "img": "https://tse2.mm.bing.net/th?id=OIP.W0ptHggsJCdEOjHkBg2UIgHaD4&pid=Api&P=0",
+   "id": "19"
+  },
+  {
+   "description": "Requirements: Have verifiable experience of four / five years in development of Java WEB applications, experience in frameworks like GWT or similar.
+   Advanced knowledge of architectures based on microservices.
+   Knowledge of cloud application development using AMAZON WS, Windows Azure or similar.",
+   "name": "Java programmer analyst",
+   "location": "México",
+   "category": "Fullstack",
+   "seniority": "Trainee",
+   "img": "https://tse1.mm.bing.net/th?id=OIP.AtH_0JgAXejdikwHuNNLjAHaFg&pid=Api&P=0",
+   "id": "20"
+  }
+
+ ]

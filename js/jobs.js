@@ -74,10 +74,6 @@ const jobsCards = (arrayJobs) => {
          )
      }
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> 9f7de03c3a6af2199507c0c7c4ef0f3fb781fd2f
 }
 
 const saveJob =()=>{
@@ -314,20 +310,12 @@ $("#chooseFilter").addEventListener("change",(e) =>{
         }
 
        $("#searchBtn").addEventListener("click",()=>{
-<<<<<<< HEAD
-
-=======
         
->>>>>>> 9f7de03c3a6af2199507c0c7c4ef0f3fb781fd2f
          $("#container").innerHTML= ""
          filter()
        })
        $("#clearBtn").addEventListener("click",()=>{
-<<<<<<< HEAD
-
-=======
         
->>>>>>> 9f7de03c3a6af2199507c0c7c4ef0f3fb781fd2f
         $("#container").innerHTML= ""
         getJobsWithAsyncAwait().then(data=>jobsCards(data))
         $("#chooseFilter").value = "choice"

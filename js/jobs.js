@@ -69,6 +69,8 @@ const jobsCards = (arrayJobs) => {
             hideElement($("#filters"))
 
             showElement($("#spinner"))
+            hideElement($("#filters"))
+
              const jobId = btn.getAttribute("data-id")
              getJobWithAsyncAwait(jobId).then(data=> viewDetails(data))
          }
@@ -170,11 +172,14 @@ const deleteJob = (idJob) => {
     }).finally(() => getJobsWithAsyncAwait().then(data=>jobsCards(data)))
 }
 
+//IMPORTANTE AGRAGAR A MOCKAPI EL DETAIL
+
+//<p class="mb-4 px-2 text-sm text-justify sm:text-base">${detail}</p>
 
 
 const viewDetails = (objJob) =>{
     hideElement($("#spinner"))
-    const{name,description,location,category,seniority, img,id}= objJob
+    const{name,description,location,category,seniority, img,detail,id}= objJob
     $("#container").innerHTML = `
     <div id = "card-{id}" class="w-5/6 h-[450px] my-3 border border-2 rounded-md shadow-2xl sm:w-1/3 sm:m-3 md:w-1/4 lg:w-1/5 xl:w-1/6">
     <figure class ="w-full h-1/3 flex mt-2 items-center justify-center">
@@ -182,7 +187,7 @@ const viewDetails = (objJob) =>{
     </figure>
     <div id ="contents" class="h-2/3 p-2 flex flex-col justify-center items-center">
         <h3 class="text-xl font-bold underline">${name}</h3>
-        <p class="my-4 p-2 text-justify">${description}</p>
+        <p class="mt-4 p-2 text-justify">${description}</p>
         <div class="flex flex-row">
             <div id="locationDiv" class="m-1 bg-pink-400 text-center text-xs font-bold ">${location}</div>
             <div id="categoryDiv" class="m-1 bg-yellow-400 text-center text-xs font-bold">${category}</div>
@@ -279,29 +284,35 @@ $("#chooseFilter").addEventListener("change",(e) =>{
     }
     })
 
+
+    const filterByLocation = async () => {
+        const response = await fetch(`https://637fb96d8efcfcedacf6375c.mockapi.io/jobs?location=${$("#filterLocation").value}`)
+        const job = await response.json()
+        return jobsCards(job)
+    }
+    const filterByCategory = async () => {
+        const response = await fetch(`https://637fb96d8efcfcedacf6375c.mockapi.io/jobs?category=${$("#filterCategory").value}`)
+        const job = await response.json()
+        return jobsCards(job)
+    }
+    const filterBySeniority = async () => {
+        const response = await fetch(`https://637fb96d8efcfcedacf6375c.mockapi.io/jobs?seniority=${$("#filterSeniority").value}`)
+        const job = await response.json()
+        return jobsCards(job)
+    }
+
     const filter =   () => {
         if($("#chooseFilter").value == "chooseLocation"){
-            let jobsLocations = getJobsWithAsyncAwait().then(data => data.filter((job) => job.location === $("#filterLocation").value))
-         console.log(jobsLocations)
-            //quiero hacer algun alerta por si no hay ningun resultado que coincida con la busquda
-           // if(jobsLocations){alert("No hay ningún trabajo que coincida")}
 
-         return jobsLocations.then(data => jobsCards(data))
-        }
-
+        filterByLocation()
+        }  
+        
         if($("#chooseFilter").value == "chooseCategory"){
-            let jobsCategory = getJobsWithAsyncAwait().then(data => data.filter((job) => job.category === $("#filterCategory").value))
-           // if(jobsSeniority==[]){alert("No hay ningún trabajo que coincida")}
-
-
-            return jobsCategory.then(data => jobsCards(data))
-        }
-
+           filterByCategory()
+        } 
+        
         if($("#chooseFilter").value == "chooseSeniority"){
-            let jobsSeniority = getJobsWithAsyncAwait().then(data => data.filter((job) => job.seniority === $("#filterSeniority").value))
-           // if(jobsSeniority==[]){alert("No hay ningún trabajo que coincida")}
-
-            return jobsSeniority.then(data => jobsCards(data))
+         filterBySeniority()
         }
 
         }

@@ -88,7 +88,7 @@ const saveJob =()=>{
         location: $("#location").value ,
         category:$("#category").value ,
         seniority:$("#seniority").value,
-        img: $("#src").value.toLowerCase() ,
+        img: $("#src").value ,
     }
 
 }
@@ -101,7 +101,7 @@ const saveJobEdit =()=>{
         location: $("#locationEdit").value ,
         category:$("#categoryEdit").value ,
         seniority:$("#seniorityEdit").value,
-        img: $("#srcEdit").value.toLowerCase() ,
+        img: $("#srcEdit").value ,
     }
 }
 

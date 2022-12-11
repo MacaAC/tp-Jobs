@@ -65,10 +65,12 @@ const jobsCards = (arrayJobs) => {
      }
      for (const btn of $$(".btnSeeDetails")){
          btn.addEventListener("click",()=>{
+            $("#container").innerHTML = ""
+            hideElement($("#filters"))
+
             showElement($("#spinner"))
              const jobId = btn.getAttribute("data-id")
              getJobWithAsyncAwait(jobId).then(data=> viewDetails(data))
-             hideElement($("#filters"))
          }
          )
      }
@@ -86,10 +88,11 @@ const saveJob =()=>{
         location: $("#location").value ,
         category:$("#category").value ,
         seniority:$("#seniority").value,
-        img: $("#src").value ,
+        img: $("#src").value.toLowerCase() ,
     }
     
 }
+
 const saveJobEdit =()=>{
    
     return  {

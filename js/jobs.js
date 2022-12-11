@@ -23,8 +23,6 @@ const getJobWithAsyncAwait = async (idJob) => {
 
 
 
-
-
 const postJob = () => {
     fetch("https://637fb96d8efcfcedacf6375c.mockapi.io/jobs", {
         method: "POST",
@@ -50,49 +48,49 @@ const jobsCards = (arrayJobs) => {
 
             <div id = "card-{id}" class="w-5/6 h-full my-3 border border-2 rounded-md shadow-2xl sm:w-1/3 sm:m-3 md:w-1/4 lg:w-1/5 xl:w-1/6">
             <figure class ="w-full h-1/3 flex mt-2 items-center">
-                <img class="w-full h-[170px]" src=${img}" alt="job">
+                <img class="w-full h-[170px]" src="${img}" alt="job">
             </figure>
             <div id ="contents" class="h-2/3 p-2 flex flex-col justify-center items-center">
-                <h3 class="text-xl font-bold underline">${name}</h3>
-                <p class="my-4 p-2 text-justify text-sm">${description}</p>
+                <h3 class="text-xl font-bold">${name}</h3>
+                <p class="my-4 p-2 text-justify text-base">${description}</p>
                 <div class="flex flex-row">
-                    <div id="locationDiv" class="m-1 px-1 bg-pink-400 text-center text-xs font-bold rounded-md">${location}</div>
-                    <div id="categoryDiv" class="m-1 px-1 bg-yellow-400 text-center text-xs font-bold rounded-md">${category}</div>
-                    <div id="seniorityDiv" class="m-1 px-1 bg-orange-400 text-center text-xs font-bold rounded-md">${seniority}</div>
+                    <div id="locationDiv" class="m-1 p-2 bg-pink-400 text-center text-xs font-bold rounded-md">${location}</div>
+                    <div id="categoryDiv" class="m-1 p-2 bg-yellow-400 text-center text-xs font-bold rounded-md">${category}</div>
+                    <div id="seniorityDiv" class="m-1 p-2 bg-orange-400 text-center text-xs font-bold rounded-md">${seniority}</div>
                 </div>
                 <button  data-id="${id}" class="btnSeeDetails w-2/3 h-10 my-2 rounded-md shadow-md bg-blue-400 text-white font-bold">See Details</button>
             </div>`
      }
      for (const btn of $$(".btnSeeDetails")){
          btn.addEventListener("click",()=>{
-            showElement($("#spinner"))
+            $("#container").innerHTML = ""
             hideElement($("#filters"))
 
+            showElement($("#spinner"))
+            hideElement($("#filters"))
              const jobId = btn.getAttribute("data-id")
              getJobWithAsyncAwait(jobId).then(data=> viewDetails(data))
          }
          )
-     
      }
-
     }
-   
 }
 
-
-//--------------
 const saveJob =()=>{
-   
+
     return  {
         description: $("#description").value,
         name : $("#title").value,
         location: $("#location").value ,
         category:$("#category").value ,
         seniority:$("#seniority").value,
-        img: $("#src").value ,
+        img: $("#src").value,
+      //  img: $("#src").value.toLowerCase() ,
+
     }
-    
+
 }
+
 const saveJobEdit =()=>{
    
     return  {
@@ -101,7 +99,9 @@ const saveJobEdit =()=>{
         location: $("#locationEdit").value ,
         category:$("#categoryEdit").value ,
         seniority:$("#seniorityEdit").value,
-        img: $("#srcEdit").value ,
+        //img: $("#srcEdit").value.toLowerCase() ,
+        img: $("#srcEdit").value,
+
     }
 }
 
@@ -109,11 +109,14 @@ const saveJobEdit =()=>{
 $("#navJob").addEventListener('click', () =>{
     hideElement($("#filters"))
     hideElement($("#editJobForm"))
+
     $("#container").innerHTML= ` <div id="spinner" class="flex justify-center hidden">
     <p class="w-40 h-12 rounded-md shadow-md bg-indigo-500 text-white font-bold flex justify-center items-center"><span><i class="fas fa-spinner mx-2 text-3xl animate-spin"></i></span>Cargando...</p>
   </div>
   `
     // resetForm()
+   // $("#formNewJob").reset() no me permite hacer el reset de esta forma..que desgracia
+
     showElement($("#formNewJob"))
 })
 
@@ -178,7 +181,7 @@ const viewDetails = (objJob) =>{
     $("#container").innerHTML = `
     <div id = "card-{id}" class="w-5/6 h-[450px] my-3 border border-2 rounded-md shadow-2xl sm:w-1/3 sm:m-3 md:w-1/4 lg:w-1/5 xl:w-1/6">
     <figure class ="w-full h-1/3 flex mt-2 items-center justify-center">
-        <img class="w-full h-[170px]" src=${img}" alt="job">
+        <img class="w-full h-[170px]" src="${img}" alt="job">
     </figure>
     <div id ="contents" class="h-2/3 p-2 flex flex-col justify-center items-center">
         <h3 class="text-xl font-bold underline">${name}</h3>
@@ -192,6 +195,7 @@ const viewDetails = (objJob) =>{
             <button data-id="${id}" class="btnEditJob w-1/3 h-10 m-2 rounded-md shadow-md bg-green-400 text-white font-bold" >Edit</button>
             <button  data-id="${id}" class="btnDeleteJob w-1/3 h-10 m-2 rounded-md shadow-md bg-red-400 text-white font-bold" >Delete</button>
         </div>
+
     </div>`
     for (const btn of $$(".btnEditJob")){
         btn.addEventListener("click",()=>{
@@ -232,8 +236,6 @@ $("#editJobForm").addEventListener("submit",(e)=>{
     const id =  $("#submitEdit").getAttribute("data-id")
     editJob(id)
     hideElement($("#editJobForm"))
-    //getJobsWithAsyncAwait().then(data=>jobsCards(data))
-
 })
 
 const cancel = ()=>{
@@ -278,6 +280,11 @@ $("#chooseFilter").addEventListener("change",(e) =>{
     }
     })
 
+    // const filterBy = async (input) => {
+    //     const response = await fetch(`https://637fb96d8efcfcedacf6375c.mockapi.io/jobs?location=${input}`)
+    //     const job = await response.json()
+    //     return jobsCards(job)
+    // }
 
     const filterByLocation = async () => {
         const response = await fetch(`https://637fb96d8efcfcedacf6375c.mockapi.io/jobs?location=${$("#filterLocation").value}`)
@@ -297,38 +304,42 @@ $("#chooseFilter").addEventListener("change",(e) =>{
 
     const filter =   () => {
         if($("#chooseFilter").value == "chooseLocation"){
-        filterByLocation()
+            filterBy($("#filterLocation").value)
+
+       // filterByLocation()
         }  
-        
+
         if($("#chooseFilter").value == "chooseCategory"){
            filterByCategory()
-        } 
-        
+          //filterBy($("#filterCategory").value)
+        }
+
         if($("#chooseFilter").value == "chooseSeniority"){
          filterBySeniority()
+         //filterBy($("#filterSeniority").value)
+
         }
 
         }
 
        $("#searchBtn").addEventListener("click",()=>{
         
-         $("#container").innerHTML= "" 
+         $("#container").innerHTML= ""
          filter()
        })
        $("#clearBtn").addEventListener("click",()=>{
         
-        $("#container").innerHTML= "" 
+        $("#container").innerHTML= ""
         getJobsWithAsyncAwait().then(data=>jobsCards(data))
         $("#chooseFilter").value = "choice"
 
         hideElement($("#filterLocation"))
         hideElement($("#filterSeniority"))
         hideElement($("#filterCategory"))
-        hideElement($("#filterButtons"))        
+        hideElement($("#filterButtons"))
       })
 
 //-------funcion navbar responsive
 
 $("#btnMenu").addEventListener('click', () => $("#menu").classList.toggle('hidden'))
 
- 

@@ -304,14 +304,16 @@ $("#chooseFilter").addEventListener("change",(e) =>{
 
     const filter =   () => {
         if($("#chooseFilter").value == "chooseLocation"){
-            filterBy($("#filterLocation").value)
+           
+           //filterBy($("#filterLocation").value)
 
-       // filterByLocation()
+        filterByLocation()
         }  
 
         if($("#chooseFilter").value == "chooseCategory"){
            filterByCategory()
           //filterBy($("#filterCategory").value)
+
         }
 
         if($("#chooseFilter").value == "chooseSeniority"){

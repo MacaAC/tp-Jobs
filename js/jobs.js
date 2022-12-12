@@ -4,14 +4,17 @@ const $$ = (selector)=> document.querySelectorAll(selector)
 const hideElement = (selector) => selector.classList.add("hidden")
 const showElement = (selector) => selector.classList.remove("hidden")
 
+let page = 1
+
 
 const getJobsWithAsyncAwait = async () => {
-    const response = await fetch("https://637fb96d8efcfcedacf6375c.mockapi.io/jobs")
+    const response = await fetch(`https://637fb96d8efcfcedacf6375c.mockapi.io/jobs?page=${page}&limit=5`)
     const jobs = await response.json()
     return jobs
 }
 
 getJobsWithAsyncAwait().then(data=>jobsCards(data))
+showElement($("#filters"))
 getJobsWithAsyncAwait().catch(()=> alert("La información no está disponible"))
 
 
@@ -46,13 +49,13 @@ const jobsCards = (arrayJobs) => {
 
             $("#container").innerHTML += `
 
-            <div id = "card-{id}" class="w-5/6 h-full my-3 border border-2 rounded-md shadow-2xl sm:w-1/3 sm:m-3 md:w-1/4 lg:w-1/5 xl:w-1/6">
+            <div id = "card-{id}" class="w-5/6 h-[500px] my-3 border border-2 rounded-md shadow-2xl sm:w-1/3 sm:m-3 md:w-1/4 lg:w-1/5 xl:w-1/6">
             <figure class ="w-full h-1/3 flex mt-2 items-center">
                 <img class="w-full h-[170px]" src="${img}" alt="job">
             </figure>
             <div id ="contents" class="h-2/3 p-2 flex flex-col justify-center items-center">
                 <h3 class="text-xl font-bold">${name}</h3>
-                <p class="my-4 p-2 text-justify text-base">${description}</p>
+                <p class="my-4 p-2 text-justify text-base text-ellipsis overflow-hidden">${description}</p>
                 <div class="flex flex-row">
                     <div id="locationDiv" class="m-1 p-2 bg-pink-400 text-center text-xs font-bold rounded-md">${location}</div>
                     <div id="categoryDiv" class="m-1 p-2 bg-yellow-400 text-center text-xs font-bold rounded-md">${category}</div>
@@ -172,12 +175,11 @@ const deleteJob = (idJob) => {
 
 //IMPORTANTE AGRAGAR A MOCKAPI EL DETAIL
 
-//<p class="mb-4 px-2 text-sm text-justify sm:text-base">${detail}</p>
 
 
 const viewDetails = (objJob) =>{
     hideElement($("#spinner"))
-    const{name,description,location,category,seniority, img,detail,id}= objJob
+    const{name,description,location,category,seniority, img,id}= objJob
     $("#container").innerHTML = `
     <div id = "card-{id}" class="w-5/6 h-[450px] my-3 border border-2 rounded-md shadow-2xl sm:w-1/3 sm:m-3 md:w-1/4 lg:w-1/5 xl:w-1/6">
     <figure class ="w-full h-1/3 flex mt-2 items-center justify-center">
@@ -280,49 +282,69 @@ $("#chooseFilter").addEventListener("change",(e) =>{
     }
     })
 
-    // const filterBy = async (input) => {
-    //     const response = await fetch(`https://637fb96d8efcfcedacf6375c.mockapi.io/jobs?location=${input}`)
+    const filterBy = async (by,input) => {
+        const response = await fetch(`https://637fb96d8efcfcedacf6375c.mockapi.io/jobs?${by}=${$(input).value}`)
+        const job = await response.json()
+        return jobsCards(job)
+    }
+
+    // const filterByLocation = async () => {
+    //     const response = await fetch(`https://637fb96d8efcfcedacf6375c.mockapi.io/jobs?location=${$("#filterLocation").value}`)
+    //     const job = await response.json()
+    //     return jobsCards(job)
+    // }
+    // const filterByCategory = async () => {
+    //     const response = await fetch(`https://637fb96d8efcfcedacf6375c.mockapi.io/jobs?category=${$("#filterCategory").value}`)
+    //     const job = await response.json()
+    //     return jobsCards(job)
+    // }
+    // const filterBySeniority = async () => {
+    //     const response = await fetch(`https://637fb96d8efcfcedacf6375c.mockapi.io/jobs?seniority=${$("#filterSeniority").value}`)
     //     const job = await response.json()
     //     return jobsCards(job)
     // }
 
-    const filterByLocation = async () => {
-        const response = await fetch(`https://637fb96d8efcfcedacf6375c.mockapi.io/jobs?location=${$("#filterLocation").value}`)
-        const job = await response.json()
-        return jobsCards(job)
+    const noMatches = () =>{
+        hideElement($("#filters"))
+        $("#container").innerHTML = `
+        <div class="w-5/6 p-2 mt-14 h-16 border-blue-500 rounded-md bg-blue-200 flex justify-center items-center md:w-3/5">
+        <p class="text-blue-500 mr-3">Sorry, there are no results matching your search at this time.</p>
+        <button id="btnCancelToDelete" class="w-1/3 h-10 m-1 rounded-md shadow-md bg-blue-400 text-white font-bold text-xs md:w-1/12" onclick="cancel()">Keep searching!</button>
+        </div>`
     }
-    const filterByCategory = async () => {
-        const response = await fetch(`https://637fb96d8efcfcedacf6375c.mockapi.io/jobs?category=${$("#filterCategory").value}`)
+
+
+    //IMPORTANTE necesito que me tome el padding !!!
+
+    const isntJob = async (by,input) => {
+        const response = await fetch(`https://637fb96d8efcfcedacf6375c.mockapi.io/jobs?${by}=${$(input).value}`)
         const job = await response.json()
-        return jobsCards(job)
-    }
-    const filterBySeniority = async () => {
-        const response = await fetch(`https://637fb96d8efcfcedacf6375c.mockapi.io/jobs?seniority=${$("#filterSeniority").value}`)
-        const job = await response.json()
-        return jobsCards(job)
+        if(job.length==0){
+           
+           return noMatches()
+           
+        }
     }
 
     const filter =   () => {
         if($("#chooseFilter").value == "chooseLocation"){
-           
-           //filterBy($("#filterLocation").value)
+         filterBy(`location`,"#filterLocation")
+         isntJob(`location`,"#filterLocation")
+        }
 
-        filterByLocation()
-        }  
 
         if($("#chooseFilter").value == "chooseCategory"){
-           filterByCategory()
-          //filterBy($("#filterCategory").value)
-
+         filterBy(`category`,"#filterCategory")
+         isntJob(`category`,"#filterCategory")
         }
 
         if($("#chooseFilter").value == "chooseSeniority"){
-         filterBySeniority()
-         //filterBy($("#filterSeniority").value)
-
+         filterBy(`seniority`,"#filterSeniority")
+         isntJob(`seniority`,"#filterSeniority")
         }
 
         }
+
 
        $("#searchBtn").addEventListener("click",()=>{
         
@@ -345,3 +367,36 @@ $("#chooseFilter").addEventListener("change",(e) =>{
 
 $("#btnMenu").addEventListener('click', () => $("#menu").classList.toggle('hidden'))
 
+//paginacion
+
+const nextPage = () => {
+    page = page + 1
+}
+
+const prevPage = () => {
+    if (page > 1) {
+        page = page - 1
+
+    }
+   
+}
+console.log(page)
+if(page===1){
+    $("#prev").classList.remove("bg-blue-400")
+    $("#prev").classList.add("bg-blue-200")
+
+}
+
+$("#prev").addEventListener("click", () => {
+    prevPage()
+    getJobsWithAsyncAwait().then(data=>jobsCards(data))
+})
+$("#next").addEventListener("click", () => {
+    nextPage()
+    getJobsWithAsyncAwait().then(data=>jobsCards(data))
+        $("#prev").classList.remove("bg-blue-200")
+        $("#prev").classList.add("bg-blue-400")
+
+
+    
+})

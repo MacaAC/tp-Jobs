@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Document</title>
 </head>
-<body >
+<body class="m-0" >
   <header>
     <nav class="flex items-center justify-between flex-wrap bg-blue-400 p-6">
 
@@ -43,7 +43,7 @@
  
 
   <select id="chooseFilter" class="w-4/5 my-2 h-10 border border-blue-400 rounded-md md:w-1/5 md:mx-1">
-    <option value="choice">Elegir filtro</option>
+    <option value="choice">Select a filter</option>
     <option value="chooseLocation">Location</option>
     <option value="chooseSeniority">Seniority</option>
     <option value="chooseCategory">Category</option>
@@ -78,7 +78,7 @@
     
     <select id="filterSeniority" class="w-4/5 my-2 h-10 border border-blue-400 rounded-md md:w-1/5 md:mx-1 md:my-8 hidden">
       <option value="Senior">Senior</option>
-      <option value="Semi-Senior">Semi-Senior</option>
+      <option value="SemiSenior">Semi-Senior</option>
       <option value="Junior">Junior</option>
       <option value="Trainee">Trainee</option>
     </select>
@@ -93,10 +93,7 @@
     </div>
 
 </section>
-<section  class="w-full flex flex-col justify-center items-center md:flex md:flex-row " >
-  <button id="prev" class="w-1/12 h-10 my-2 mr-2 rounded-md shadow-md bg-blue-200 text-white font-bold"> << Prev </button>
-  <button id="next" class="w-1/12 h-10 my-2 ml-2 rounded-md shadow-md bg-blue-400 text-white font-bold"> Next >> </button>
-</section>
+
 
 <!-- 
 alert de confirmacion para borrar job? -->
@@ -112,7 +109,6 @@ alert de confirmacion para borrar job? -->
 
 <section id="container" class="w-full h-full flex flex-col justify-center items-center sm:flex sm:flex-wrap sm:flex-row ">
 
-
 </section>
 
 
@@ -125,22 +121,22 @@ alert de confirmacion para borrar job? -->
 
       <div class="m-2 flex flex-col justify-center">
           <label for="jobTitle" class="text-lg font-bold">Job title</label>
-          <input id="title" type="text" id="jobTitle" class="w-full h-10 border border-blue-400 rounded-md capitalize" maxlength="20" required>
+          <input id="title" type="text" id="jobTitle" class="w-full h-10 border border-blue-400 rounded-md " maxlength="20" required>
       </div>
 
       <div class="m-2 flex flex-col justify-center">
           <label for="jobDescription" class="text-lg font-bold">Description</label>
-          <textarea id="description" name="textarea" rows="10" cols="50" class="w-full border border-blue-400 rounded-md capitalize"></textarea>
+          <textarea id="description" name="textarea" rows="10" cols="50" class="w-full border border-blue-400 rounded-md "></textarea>
       </div>
 
       <div class="m-2 flex flex-col justify-center">
         <label for="jobDescription" class="text-lg font-bold">Src</label>
-        <textarea id="src" name="textarea" rows="1" cols="50" class="w-full border border-blue-400 rounded-md capitalize"></textarea>
+        <textarea id="src" name="textarea" rows="1" cols="50" class="w-full border border-blue-400 rounded-md "></textarea>
     </div>
 
       <div  class="m-2 flex flex-col justify-center">
           <label for="jobTags" class="text-lg font-bold">Tags</label>
-          <select id="location" class="w-full p-2 h-10 my-1 border border-blue-400 rounded-md capitalize">
+          <select id="location" class="w-full p-2 h-10 my-1 border border-blue-400 rounded-md ">
             <option value="Argentina">Argentina</option>
             <option value="Bélice">Bélice</option>
             <option value="Bolivia">Bolivia</option>
@@ -165,13 +161,13 @@ alert de confirmacion para borrar job? -->
             <option value="Uruguay">Uruguay</option>
             <option value="Venezuela">Venezuela</option>
           </select>
-          <select id="seniority" class="w-full p-2 h-10 my-1 border border-blue-400 rounded-md capitalize">
+          <select id="seniority" class="w-full p-2 h-10 my-1 border border-blue-400 rounded-md ">
             <option value="Senior">Senior</option>
-            <option value="Semi-Senior">Semi-Senior</option>
+            <option value="SemiSenior">Semi-Senior</option>
             <option value="Junior">Junior</option>
             <option value="Trainee">Trainee</option>
           </select>
-          <select id="category" class="w-full p-2 h-10 my-1 border border-blue-400 rounded-md capitalize">
+          <select id="category" class="w-full p-2 h-10 my-1 border border-blue-400 rounded-md ">
             <option value="Frontend">Frontend</option>
             <option value="Backend">Backend</option>
             <option value="Fullstack">Fullstack</option>
@@ -194,21 +190,21 @@ alert de confirmacion para borrar job? -->
 
       <div class="m-2 flex flex-col justify-center">
           <label for="jobTitle" class="text-lg font-bold">Job title</label>
-          <input id="titleEdit" type="text" id="jobTitle" class="w-full h-10 border border-blue-400 rounded-md capitalize" maxlength="20" required>
+          <input id="titleEdit" type="text" id="jobTitle" class="w-full h-10 border border-blue-400 rounded-md " maxlength="20" required>
       </div>
 
       <div class="m-2 flex flex-col justify-center">
           <label for="jobDescription" class="text-lg font-bold">Description</label>
-          <textarea id="descriptionEdit" name="textarea" rows="10" cols="50" class="w-full border border-blue-400 rounded-md capitalize"></textarea>
+          <textarea id="descriptionEdit" name="textarea" rows="10" cols="50" class="w-full border border-blue-400 rounded-md "></textarea>
       </div>
 
       <div class="m-2 flex flex-col justify-center">
         <label for="jobDescription" class="text-lg font-bold">Src</label>
-        <textarea id="srcEdit" name="textarea" rows="1" cols="50" class="w-full border border-blue-400 rounded-md capitalize"></textarea>
+        <textarea id="srcEdit" name="textarea" rows="1" cols="50" class="w-full border border-blue-400 rounded-md "></textarea>
     </div>
 
       <div  class="m-2 flex flex-col justify-center">
-          <select id="locationEdit" class="w-full p-2 h-10 my-1 border border-blue-400 rounded-md capitalize">
+          <select id="locationEdit" class="w-full p-2 h-10 my-1 border border-blue-400 rounded-md ">
             <option value="Argentina">Argentina</option>
             <option value="Bélice">Bélice</option>
             <option value="Bolivia">Bolivia</option>
@@ -233,13 +229,13 @@ alert de confirmacion para borrar job? -->
             <option value="Uruguay">Uruguay</option>
             <option value="Venezuela">Venezuela</option>
           </select>
-          <select id="seniorityEdit" class="w-full p-2 h-10 my-1 border border-blue-400 rounded-md capitalize">
+          <select id="seniorityEdit" class="w-full p-2 h-10 my-1 border border-blue-400 rounded-md ">
             <option value="Senior">Senior</option>
-            <option value="Semi-Senior">Semi-Senior</option>
+            <option value="SemiSenior">Semi-Senior</option>
             <option value="Junior">Junior</option>
             <option value="Trainee">Trainee</option>
           </select>
-          <select id="categoryEdit" class="w-full p-2 h-10 my-1 border border-blue-400 rounded-md capitalize">
+          <select id="categoryEdit" class="w-full p-2 h-10 my-1 border border-blue-400 rounded-md ">
             <option value="Frontend">Frontend</option>
             <option value="Backend">Backend</option>
             <option value="Fullstack">Fullstack</option>
@@ -254,10 +250,16 @@ alert de confirmacion para borrar job? -->
   </form>
 
 </section >
-<footer class="bg-blue-400 text-white flex justify-center items-center h-[100px] mb-0 mt-[50vh]">
+
+<section id="paginationButtons" class="w-full flex  justify-center items-center" >
+  <button id="prev" class="w-1/3 md:w-1/12 h-10 my-2 mr-2 rounded-md shadow-md bg-blue-200  text-white font-bold"> << Prev </button>
+  <button id="next" class="w-1/3 md:w-1/12 h-10 my-2 ml-2 rounded-md shadow-md bg-blue-500 hover:bg-blue-600 active:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300 text-white font-bold"> Next >> </button>
+</section>
+
+<footer class="bg-blue-400 text-white flex justify-center items-center mb-0  w-full h-[100px] fixed">
   <div class="flex justify-between items-center w-32 ">
     <div class="font-semibold text-xl tracking-tight ">Careers</div>
-    <div class="text-xs ">by Maca</div>
+    <div class="text-xs">by Maca</div>
   </div>
 </footer>
 

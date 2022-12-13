@@ -67,17 +67,16 @@ const jobsCards = (arrayJobs) => {
      for (const btn of $$(".btnSeeDetails")){
          btn.addEventListener("click",()=>{
             $("#container").innerHTML = ""
-            hideElement($("#filters"))
+            hideElement($("#filters")) //no entiendo pq no se esconde
             hideElement($("#paginationButtons"))
-
             showElement($("#spinner"))
-            hideElement($("#filters"))
              const jobId = btn.getAttribute("data-id")
              getJobWithAsyncAwait(jobId).then(data=> viewDetails(data))
          }
          )
      }
     }
+    showElement($("#paginationButtons"))
 }
 
 const saveJob =()=>{
@@ -103,7 +102,6 @@ const saveJobEdit =()=>{
         location: $("#locationEdit").value ,
         category:$("#categoryEdit").value ,
         seniority:$("#seniorityEdit").value,
-        //img: $("#srcEdit").value.toLowerCase() ,
         img: $("#srcEdit").value,
 
     }
@@ -113,18 +111,20 @@ const saveJobEdit =()=>{
 $("#navJob").addEventListener('click', () =>{
     hideElement($("#filters"))
     hideElement($("#editJobForm"))
+    hideElement($("#paginationButtons"))
 
     $("#container").innerHTML= ` <div id="spinner" class="flex justify-center hidden">
     <p class="w-40 h-12 rounded-md shadow-md bg-indigo-500 text-white font-bold flex justify-center items-center"><span><i class="fas fa-spinner mx-2 text-3xl animate-spin"></i></span>Cargando...</p>
   </div>
   `
     // resetForm()
-   // $("#formNewJob").reset() no me permite hacer el reset de esta forma..que desgracia
 
     showElement($("#formNewJob"))
 })
 
 $("#formNewJob").addEventListener('submit', (e) =>{
+    $("#formNewJob").reset()
+
     //reset() // me trae problemas... buscar como se resetea formularios...
     e.preventDefault()
     hideElement($("#formNewJob"))
@@ -133,12 +133,14 @@ $("#formNewJob").addEventListener('submit', (e) =>{
 
 
 $("#navHome").addEventListener('click', () => {
-    showElement($("#spinner"))
     hideElement($("#formNewJob"))
     hideElement($("#confirmation"))
     hideElement($("#editJobForm"))
     showElement ($("#filters"))
+    $("#container").innerHTML = ""
+    showElement($("#spinner"))
     getJobsWithAsyncAwait().then(data=>jobsCards(data))
+
 })
 
 
@@ -182,7 +184,7 @@ const viewDetails = (objJob) =>{
     hideElement($("#spinner"))
     const{name,description,location,category,seniority, img,id}= objJob
     $("#container").innerHTML = `
-    <div id = "card-{id}" class="w-11/12 min-h-full my-3 shadow-lg shadow-blue-500/50 border border-2 rounded-md shadow-2xl sm:w-1/3 sm:m-3 ">
+    <div class="w-11/12 min-h-full justify-center my-3 shadow-lg shadow-blue-500/50 border border-2 rounded-md shadow-2xl sm:w-1/3 sm:m-3 ">
     <figure class ="w-full h-1/3 flex mt-2 items-center justify-center">
         <img class="w-full h-[170px]" src="${img}" alt="job">
     </figure>
@@ -190,9 +192,9 @@ const viewDetails = (objJob) =>{
         <h3 class="text-2xl font-bold text-blue-400">${name}</h3>
         <p class="mt-4 p-2 text-justify">${description}</p>
         <div class="flex flex-row">
-            <div id="locationDiv" class="m-1 bg-pink-400 text-center text-xs font-bold ">${location}</div>
-            <div id="categoryDiv" class="m-1 bg-yellow-400 text-center text-xs font-bold">${category}</div>
-            <div id="seniorityDiv" class="m-1 bg-orange-400 text-center text-xs font-bold">${seniority}</div>
+            <div id="locationDiv" class="m-1 p-3 rounded-md bg-pink-400 text-center text-xs font-bold ">${location}</div>
+            <div id="categoryDiv" class="m-1 p-3 rounded-md bg-yellow-400 text-center text-xs font-bold">${category}</div>
+            <div id="seniorityDiv" class="m-1 p-3 rounded-md bg-orange-400 text-center text-xs font-bold">${seniority}</div>
         </div>
         <div class="flex w-full justify-center">
             <button data-id="${id}" class="btnEditJob bg-green-500 hover:bg-green-600 active:bg-green-700 focus:outline-none focus:ring focus:ring-green-300 w-1/3 h-10 m-2 rounded-md shadow-md text-white font-bold" >Edit</button>

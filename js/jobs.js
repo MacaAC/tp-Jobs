@@ -58,11 +58,11 @@ const jobsCards = (arrayJobs) => {
                     <h3 class="text-xl font-bold mt-3">${name}</h3>
                     <p class="my-4 p-2 text-justify text-base text-ellipsis overflow-hidden">${description}</p>
                     <div class="flex flex-row">
-                        <div class="m-1 p-1 bg-pink-400 text-center text-xs font-bold rounded-md">${location}</div>
-                        <div class="m-1 p-1 bg-yellow-400 text-center text-xs font-bold rounded-md">${category}</div>
-                        <div class="m-1 p-1 bg-orange-400 text-center text-xs font-bold rounded-md">${seniority}</div>
+                        <div class="m-1 p-1 bg-pink-400 text-center text-xs font-bold rounded-md border-dotted border-2 border-pink-600 ">${location}</div>
+                        <div class="m-1 p-1 bg-yellow-400 text-center text-xs font-bold rounded-md border-dotted border-2 border-yellow-600 ">${category}</div>
+                        <div class="m-1 p-1 bg-orange-400 text-center text-xs font-bold rounded-md border-dotted border-2 border-orange-600 ">${seniority}</div>
                     </div>
-                    <button  data-id="${id}" class="btnSeeDetails bg-blue-500 hover:bg-blue-600 active:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300 w-2/3 h-10 my-2 rounded-md shadow-md  text-white font-bold ">See Details</button>
+                    <button  data-id="${id}" class="btnSeeDetails shadow-lg shadow-blue-500/50 bg-blue-500 hover:bg-blue-600 active:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300 w-2/3 h-10 my-2 rounded-md shadow-md  text-white font-bold ">See Details</button>
                 </div>
 
             </div>
@@ -73,7 +73,8 @@ const jobsCards = (arrayJobs) => {
         for (const btn of $$(".btnSeeDetails")){
             btn.addEventListener("click",()=>{
             $("#container").innerHTML = ""
-            hideElement($("#filters")) //no entiendo pq no se esconde
+            console.log($("#filters"))
+            hideElement($("#chooseFilter")) 
             hideElement($("#paginationButtons"))
             showElement($("#spinner"))
             const jobId = btn.getAttribute("data-id")
@@ -112,6 +113,8 @@ const saveJobEdit =()=>{
 
 $("#navJob").addEventListener('click', () =>{
     hideElement($("#filters"))
+    hideElement($("#chooseFilter"))
+
     hideElement($("#editJobForm"))
     hideElement($("#paginationButtons"))
 
@@ -134,13 +137,39 @@ $("#navHome").addEventListener('click', () => {
     hideElement($("#formNewJob"))
     hideElement($("#confirmation"))
     hideElement($("#editJobForm"))
-    showElement ($("#filters"))
+    showElement ($("#chooseFilter"))
     $("#container").innerHTML = ""
     showElement($("#spinner"))
     getJobsWithAsyncAwait().then(data=>jobsCards(data))
     getJobsWithAsyncAwait().catch(()=> alert("The information is not available"))
     showElement($("#paginationButtons"))
 })
+$("#iconFooter").addEventListener('click', () => {
+    hideElement($("#formNewJob"))
+    hideElement($("#confirmation"))
+    hideElement($("#editJobForm"))
+    showElement ($("#filters"))
+    showElement ($("#chooseFilter"))
+    $("#container").innerHTML = ""
+    showElement($("#spinner"))
+    getJobsWithAsyncAwait().then(data=>jobsCards(data))
+    getJobsWithAsyncAwait().catch(()=> alert("The information is not available"))
+    showElement($("#paginationButtons"))
+})
+$("#iconNav").addEventListener('click', () => {
+    hideElement($("#formNewJob"))
+    hideElement($("#confirmation"))
+    hideElement($("#editJobForm"))
+    showElement ($("#chooseFilter"))
+    showElement ($("#filters"))
+
+    $("#container").innerHTML = ""
+    showElement($("#spinner"))
+    getJobsWithAsyncAwait().then(data=>jobsCards(data))
+    getJobsWithAsyncAwait().catch(()=> alert("The information is not available"))
+    showElement($("#paginationButtons"))
+})
+
 
 
 const showForm = (job) =>{
@@ -183,23 +212,23 @@ const viewDetails = (objJob) =>{
     hideElement($("#spinner"))
     const{name,description,location,category,seniority, img,id}= objJob
     $("#container").innerHTML = `
-    <div class="w-11/12 min-h-[400px] justify-center my-3 shadow-lg shadow-blue-500/50 border border-2 rounded-md shadow-2xl sm:w-1/3 sm:m-3 ">
-    <figure class ="w-full h-1/3 flex mt-2 items-center justify-center">
-        <img class="w-full h-[170px]" src="${img}" alt="job">
-    </figure>
-    <div id ="contents" class="h-2/3 p-2 flex flex-col justify-center items-center">
-        <h3 class="text-2xl font-bold text-blue-400">${name}</h3>
-        <p class="mt-4 p-2 text-justify">${description}</p>
-        <div class="flex flex-row">
-            <div class="m-1 p-3 rounded-md bg-pink-400 text-center text-xs font-bold ">${location}</div>
-            <div class="m-1 p-3 rounded-md bg-yellow-400 text-center text-xs font-bold">${category}</div>
-            <div class="m-1 p-3 rounded-md bg-orange-400 text-center text-xs font-bold">${seniority}</div>
+    <div class="w-11/12 min-h-[200px] justify-center my-3 shadow-lg shadow-blue-500/50 border border-2 rounded-md shadow-2xl sm:w-1/3 sm:m-3 ">
+        <div class ="w-full h-1/2 flex mt-2 items-center justify-center">
+            <img class="w-full h-full" src="${img}" alt="job">
         </div>
-        <div class="flex w-full justify-center">
-            <button data-id="${id}" class="btnEditJob bg-green-500 hover:bg-green-600 active:bg-green-700 focus:outline-none focus:ring focus:ring-green-300 w-1/3 h-10 m-2 rounded-md shadow-md text-white font-bold" >Edit</button>
-            <button  data-id="${id}" class="btnDeleteJob w-1/3 h-10 m-2 rounded-md shadow-md bg-red-500 hover:bg-red-600 active:bg-red-700 focus:outline-none focus:ring focus:ring-red-300  text-white font-bold" >Delete</button>
+        <div id ="contents" class="h-2/3 p-2 flex flex-col justify-center items-center">
+            <h3 class="text-2xl font-bold text-blue-400">${name}</h3>
+            <p class="mt-4 p-2 text-justify">${description}</p>
+            <div class="flex flex-row">
+                <div class="m-1 p-3 rounded-lg border-dotted border-2 border-pink-600  bg-pink-400 text-center text-xs font-bold ">${location}</div>
+                <div class="m-1 p-3 rounded-lg border-dotted border-2 border-yellow-600  bg-yellow-400 text-center text-xs font-bold">${category}</div>
+                <div class="m-1 p-3 rounded-lg border-dotted border-2 border-orange-600  bg-orange-400 text-center text-xs font-bold">${seniority}</div>
+            </div>
+            <div class="flex w-full justify-center">
+                <button data-id="${id}" class="btnEditJob bg-green-500 hover:bg-green-600 active:bg-green-700 focus:outline-none focus:ring focus:ring-green-300 w-1/3 h-10 m-2 rounded-md shadow-md text-white font-bold shadow-lg shadow-green-500/50" >Edit</button>
+                <button  data-id="${id}" class="btnDeleteJob w-1/3 h-10 m-2 rounded-md shadow-md bg-red-500 hover:bg-red-600 active:bg-red-700 focus:outline-none focus:ring focus:ring-red-300  text-white font-bold shadow-lg shadow-red-500/50" >Delete</button>
+            </div>
         </div>
-
     </div>`
 
     for (const btn of $$(".btnEditJob")){
@@ -350,11 +379,9 @@ $("#chooseFilter").addEventListener("change",(e) =>{
         hideElement($("#filterButtons"))
     })
 
-//-------funcion navbar responsive
 
 $("#btnMenu").addEventListener('click', () => $("#menu").classList.toggle('hidden'))
 
-//pagination
 
 const nextPage = () => {
     page = page + 1
